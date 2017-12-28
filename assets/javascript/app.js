@@ -8,7 +8,7 @@ $("button.start").on("click", function() {
     var numberIncorrect = 0;
     var numberUnanswered = 0;
 
-    //question and answer object
+    //question and answer objects
     var question1info = {
         question:"How many pairs of Uggs do you own?!",
         wrongAnswer1: "Two!",
@@ -90,28 +90,10 @@ $("button.start").on("click", function() {
     populateContent(".Q3correctAnswer", question3info.correctAnswer);
     //Question 3 click handler
     questionClickHandlers(".Q3questions", "input.q3");
-    // function notChecked (questionBlock) {
-    //     if ($(questionBlock.attr("value")) === "unchecked") {                
-    //         numberUnanswered++;
-    // }};
 
-    // $(".Q1questions").on("click", "input", function () {
-    //     console.log($(this).attr("value")); 
-    //     $("input.q1").prop("disabled", true);
-    //     });
-    
     attributeRemover("input.q1", ".Q1questions")
     attributeRemover("input.q2", ".Q2questions")
     attributeRemover("input.q3", ".Q3questions")
-
-
-    // $("input").on("click", function () {
-    //     $("input.q1").each(function () {
-    //         if ($("input.q1").is(":checked")) {
-    //             $(".Q1questions").removeAttr("value");
-    //         }
-    //     });
-    // });
 
     $(".submit").on("click", function(event) {        
         console.log({isChecked: $("input").is(":checked")});
@@ -119,31 +101,12 @@ $("button.start").on("click", function() {
         unansweredChecker(".Q2questions");
         unansweredChecker(".Q3questions");        
         $(this).prop("disabled", true);
-        // $("input.q1").each(function () {
-        //     if ($("input.q1").is(":checked")) {
-        //         $(".Q1questions").removeAttr("value");
-        //     }
-        // });
-             // if 
-                              
-            //     scoreKeeper();
-            //         // $(".totalScore").html("Correct: "+ numberCorrect + ", ");
-            //         // $(".totalScore").append("Incorrect: " + numberIncorrect + ", ");
-            //         // $(".totalScore").append("Unanswered: " + numberUnanswered);
-            //    } 
-         
-        
-        
-            
-        $("input.correct:checked").each(function (){ 
-            // console.log({correctValue: $(".correct").is(":checked")});
+
+        $("input.correct:checked").each(function (){             
             if ($(".correct").is(":checked")) {
                 numberCorrect++;
                 console.log({numberCorrect: numberCorrect});
                 scoreKeeper();
-                    // $(".totalScore").html("Correct: "+ numberCorrect + ", ");
-                    // $(".totalScore").append("Incorrect: " + numberIncorrect + ", ");
-                    // $(".totalScore").append("Unanswered: " + numberUnanswered);
             }     
         });
 
@@ -151,34 +114,11 @@ $("button.start").on("click", function() {
             if ($("input.answer").is(":checked")) {
                 numberIncorrect++;
                 console.log({numberIncorrect: numberIncorrect});
-                scoreKeeper();
-                // $(".totalScore").html("Correct: "+ numberCorrect + ", ");
-                // $(".totalScore").append("Incorrect: " + numberIncorrect + ", ");
-                // $(".totalScore").append("Unanswered: " + numberUnanswered);             
+                scoreKeeper();            
             } 
 
-            //  else if ($("input.q1:not(:checked)")) {
-                // numberUnanswered++;
-                // $(".totalScore").append("Unanswered: " + numberUnanswered);
-            // }
         });
-
-
-        // ($("input:not(:checked").each(function() {
-        //     numberUnanswered++;
-        //     console.log({numberIncorrect: numberIncorrect});
-        //     $(".totalScore").html("Correct: "+ numberCorrect + ", ");
-        //     $(".totalScore").append("Incorrect: " + numberIncorrect + ", ");
-        //     $(".totalScore").append("Unanswered: " + numberUnanswered);
-        // }));
    
     }); //close for Submit.on("click")
-
-
-
-
-
-
-
 
 }); //close for document.ready
